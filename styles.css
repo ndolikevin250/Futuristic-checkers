@@ -1,0 +1,297 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 2px;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    margin: 0 10px; /* Add horizontal margin to the board */
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cell.dark {
+    background-color: #222;
+}
+
+.cell.light {
+    background-color: #444;
+}
+
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.piece.player {
+    background-color: #f00;
+    box-shadow: 0 0 10px #f00;
+}
+
+.piece.computer {
+    background-color: #00f;
+    box-shadow: 0 0 10px #00f;
+}
+
+/* Hover effect for player's pieces */
+.cell:hover .piece.player {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #f00, 0 0 5px #fff;
+}
+
+/* Active effect for player's pieces */
+.cell:active .piece.player {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px #f00, 0 0 10px #fff;
+}
+
+/* Hover effect for computer's pieces (for consistency, even though they're not clickable) */
+.cell:hover .piece.computer {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00f, 0 0 5px #fff;
+}
+
+/* King piece styles */
+.piece.king::before {
+    content: '♛';
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff0;
+    text-shadow: 0 0 5px #ff0;
+}
+
+/* Hover effect for king pieces */
+.cell:hover .piece.king::before {
+    text-shadow: 0 0 10px #ff0, 0 0 5px #fff;
+}
+
+/* Active effect for king pieces */
+.cell:active .piece.king::before {
+    text-shadow: 0 0 15px #ff0, 0 0 7px #fff;
+}
+
+#status {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+#reset-btn {
+    background-color: #0ff;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+.board-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0 20px; /* Add horizontal padding to the container */
+}
+
+.player-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px; /* Increase the margin to add more space between icons and board */
+}
+
+.player-icon i {
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 0 0 15px #0ff;
+    transition: text-shadow 0.3s ease;
+    padding: 10px; /* Add padding around the icon */
+}
+
+.player-icon p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+.player-icon.active i {
+    text-shadow: 0 0 25px #0ff, 0 0 10px #fff;
+}
+
+/* Remove these styles if they exist */
+/*
+.player-icon-left i {
+    color: #f00;
+}
+
+.player-icon-right i {
+    color: #00f;
+}
+*/
+
+.player-icon-left .piece {
+    background-color: #f00;
+}
+
+.player-icon-right .piece {
+    background-color: #00f;
+}
+
+.piece.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff0, 0 0 10px #fff;
+}
+
+.cell.possible-move::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cell.possible-jump::after {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.stats-popup {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 0 20px #0ff;
+}
+
+.stats-popup.left {
+    left: 10px;
+}
+
+.stats-popup.right {
+    right: 10px;
+}
+
+.stats-popup h3 {
+    margin-top: 0;
+    color: #0ff;
+    text-align: center;
+}
+
+.stats-popup p {
+    margin: 5px 0;
+}
+
+.current-game-stats, .overall-stats {
+    margin-bottom: 15px;
+}
+
+.overall-stats {
+    border-top: 1px solid #0ff;
+    padding-top: 15px;
+}
+
+.settings-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.settings-button:hover {
+    transform: rotate(90deg);
+}
+
+.settings-button i {
+    font-size: 24px;
+    color: #0ff;
+}
+
+.learn-button {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    padding: 10px 20px;
+    background: linear-gradient(to right, white, yellow); /* Gradient from white to yellow */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    color: black; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer;
+    transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.learn-button:hover {
+    background: linear-gradient(to right, yellow, white); /* Reverse gradient on hover */
+}
+
+.competition-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #000000, #ffffff);
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.competition-button:hover {
+    background: linear-gradient(to right, #ffffff, #000000);
+    color: #ffffff;
+}

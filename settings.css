@@ -1,0 +1,95 @@
+/* settings.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.settings-container {
+    text-align: center;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.settings-container h1 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+    margin-bottom: 20px;
+}
+
+.settings-menu-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3) inset;
+}
+
+.difficulty-box {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.difficulty-box h2 {
+    color: #0ff;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#difficulty-select {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+#difficulty-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #0ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.settings-container button {
+    background-color: #0ff;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.settings-container button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+#back-btn {
+    background-color: #555;
+    color: #fff;
+}
+
+#back-btn:hover {
+    background-color: #777;
+}

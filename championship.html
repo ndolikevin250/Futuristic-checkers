@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkers Championship</title>
+    <link rel="stylesheet" href="championship.css">
+</head>
+<body>
+    <div class="championship-container">
+        <h1>Checkers Championship</h1>
+        <div id="fixtures-scene" class="scene">
+            <h2 id="round-indicator"></h2>
+            <ul id="fixtures-list"></ul>
+            <button id="play-btn">Play</button>
+        </div>
+        <button id="exit-btn">Exit Championship</button>
+    </div>
+    <div id="exit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Exit Championship</h2>
+            <p>Do you want to save your progress?</p>
+            <button id="save-progress-btn" class="green-btn">Save Progress</button>
+            <button id="lose-progress-btn" class="red-btn">Lose Progress</button>
+            <button id="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    <script src="championship.js"></script>
+</body>
+</html>
