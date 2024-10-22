@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.tutorial-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #0ff;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.tutorial-content {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.back-button, .next-button {
+    padding: 15px 20px;
+    background: linear-gradient(to right, #0ff, #00f);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:active, .next-button:active {
+    transform: scale(0.98);
+}
+
+.back-button {
+    background: linear-gradient(to right, #f00, #f0f);
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Computer vs Computer - Futuristic Checkers (Mobile)</title>
+    <link rel="stylesheet" href="computer-vs-computer.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="computer-container">
+        <h1>Computer vs Computer Checkers</h1>
+
+        <div class="board-container">
+            <div class="player-icon player-icon-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <p>Computer 0</p>
+            </div>
+
+            <div id="board"></div>
+
+            <div class="player-icon player-icon-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <p>Computer 1</p>
+            </div>
+        </div>
+
+        <div id="game-status"></div>
+
+        <button id="start-btn">Give Permission to Start</button>
+        <button id="restart-btn">Restart</button>
+        <button id="pause-play-btn" onclick="togglePause()">Pause</button>
+        <a href="learn.html" class="back-button">Back to Learn</a>
+    </div>
+    <script src="computer-vs-computer.js"></script>
+</body>
+</html>

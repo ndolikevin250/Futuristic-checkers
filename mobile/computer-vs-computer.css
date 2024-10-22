@@ -1,0 +1,139 @@
+ 
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a2e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+.computer-container {
+    text-align: center;
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 2px;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.cell.dark {
+    background-color: #0f3460;
+}
+
+.cell.light {
+    background-color: #16213e;
+}
+
+button, .back-button {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 20px;
+    background-color: #e94560;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+button:hover, .back-button:hover {
+    background-color: #ff6b6b;
+}
+
+#start-btn {
+    background-color: #4ecca3;
+}
+
+#start-btn:hover {
+    background-color: #45b999;
+}
+
+.piece {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.piece.computer0 {
+    background-color: #e94560;
+    box-shadow: 0 0 10px #e94560;
+}
+
+.piece.computer1 {
+    background-color: #4ecca3;
+    box-shadow: 0 0 10px #4ecca3;
+}
+
+.piece.king::after {
+    content: '♛';
+    font-size: 18px;
+    color: #ffd700;
+}
+
+.player-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.player-icon svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.player-icon-left svg {
+    color: #e94560;
+}
+
+.player-icon-right svg {
+    color: #4ecca3;
+}
+
+#game-status {
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bold;
+}

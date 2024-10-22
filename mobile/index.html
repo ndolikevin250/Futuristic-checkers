@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Futuristic Checkers (Mobile)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <button id="learn-btn" class="learn-button" onclick="window.location.href='learn.html'">Learn to Play</button>
+    <div class="game-container">
+        <h1>Futuristic Checkers</h1>
+        <div class="board-container">
+            <div class="player-icon player-icon-left">
+                <i class="fas fa-user"></i>
+                <p>Player</p>
+            </div>
+            <div id="board"></div>
+            <div class="player-icon player-icon-right">
+                <i class="fas fa-robot"></i>
+                <p>Computer</p>
+            </div>
+        </div>
+        <div id="status"></div>
+        <button id="reset-btn">Reset Game</button>
+        <button id="settings-btn" class="settings-button">
+            <i class="fas fa-cog"></i>
+        </button>
+        <button id="competition-btn" class="competition-button">Enter Competition</button>
+    </div>
+    <script src="script.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

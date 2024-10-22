@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Futuristic Checkers - Settings (Mobile)</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Settings</h1>
+        <div class="settings-menu-box">
+            <div class="difficulty-box">
+                <h2>Difficulty Level</h2>
+                <select id="difficulty-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="very-hard">Very Hard</option>
+                </select>
+            </div>
+            <div class="sound-box">
+                <h2>Sound</h2>
+                <label class="switch">
+                    <input type="checkbox" id="sound-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="button-container">
+                <button id="save-btn">Save and Close</button>
+                <button id="back-btn">Back without Saving</button>
+            </div>
+        </div>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html>
