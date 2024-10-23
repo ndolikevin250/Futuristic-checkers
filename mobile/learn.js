@@ -21,19 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.querySelector('.back-button');
 
     buttons.forEach(button => {
-        button.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.95)';
-        });
-        button.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
+        button.addEventListener('click', function() {
+            const href = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            window.location.href = href;
         });
     });
 
-    backButton.addEventListener('touchstart', function() {
-        this.style.transform = 'scale(0.95)';
-    });
-    backButton.addEventListener('touchend', function() {
-        this.style.transform = 'scale(1)';
+    backButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
     });
 
     // Prevent default touch behavior to avoid delays
