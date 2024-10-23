@@ -21,12 +21,19 @@ window.addEventListener('load', checkForUpdates);
 // For example, you might want to use touch events instead of mouse events
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the game board
-    initializeBoard();
+    const board = document.getElementById('board');
+    const status = document.getElementById('status');
+    const resetBtn = document.getElementById('reset-btn');
+    const settingsBtn = document.getElementById('settings-btn');
+    const competitionBtn = document.getElementById('competition-btn');
 
-    // Add touch event listeners for mobile interactions
-    document.getElementById('board').addEventListener('touchstart', handleTouchStart);
-    document.getElementById('board').addEventListener('touchend', handleTouchEnd);
+    // Initialize the game
+    initializeGame();
+
+    // Add event listeners
+    resetBtn.addEventListener('click', resetGame);
+    settingsBtn.addEventListener('click', openSettings);
+    competitionBtn.addEventListener('click', enterCompetition);
 
     // ... rest of your game initialization code
 });
@@ -39,6 +46,14 @@ function handleTouchStart(event) {
 function handleTouchEnd(event) {
     // Handle the end of a touch event
     // This might involve moving a piece or deselecting it
+}
+
+function openSettings() {
+    window.location.href = 'settings.html';
+}
+
+function enterCompetition() {
+    window.location.href = 'competition.html';
 }
 
 // ... rest of your game logic functions
