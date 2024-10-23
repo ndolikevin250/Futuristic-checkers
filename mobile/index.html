@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="settings.css">
 </head>
 <body>
-    <button id="learn-btn" class="learn-button" onclick="window.location.href='learn.html'">Learn to Play</button>
     <div class="game-container">
         <h1>Futuristic Checkers</h1>
+        <button id="learn-btn" class="learn-button">Learn to Play</button>
         <div class="board-container">
             <div class="player-icon player-icon-left">
                 <i class="fas fa-user"></i>
@@ -24,11 +24,13 @@
             </div>
         </div>
         <div id="status"></div>
-        <button id="reset-btn">Reset Game</button>
-        <button id="settings-btn" class="settings-button">
-            <i class="fas fa-cog"></i>
-        </button>
-        <button id="competition-btn" class="competition-button">Enter Competition</button>
+        <div class="button-container">
+            <button id="reset-btn">Reset Game</button>
+            <button id="settings-btn" class="settings-button">
+                <i class="fas fa-cog"></i> Settings
+            </button>
+            <button id="competition-btn" class="competition-button">Enter Competition</button>
+        </div>
     </div>
     <script src="script.js"></script>
     <script src="settings.js"></script>
