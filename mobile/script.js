@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetBtn = document.getElementById('reset-btn');
     const settingsBtn = document.getElementById('settings-btn');
     const competitionBtn = document.getElementById('competition-btn');
+    const learnBtn = document.getElementById('learn-btn');
 
     // Initialize the game
     initializeGame();
@@ -34,18 +35,54 @@ document.addEventListener('DOMContentLoaded', function() {
     resetBtn.addEventListener('click', resetGame);
     settingsBtn.addEventListener('click', openSettings);
     competitionBtn.addEventListener('click', enterCompetition);
+    learnBtn.addEventListener('click', openLearnPage);
 
-    // ... rest of your game initialization code
+    // Add touch event listeners for the game board
+    board.addEventListener('touchstart', handleTouchStart);
+    board.addEventListener('touchend', handleTouchEnd);
 });
 
+let touchStartCell = null;
+
 function handleTouchStart(event) {
-    // Handle the start of a touch event
-    // This might involve selecting a piece
+    event.preventDefault();
+    const touch = event.touches[0];
+    const cell = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (cell && cell.classList.contains('cell')) {
+        touchStartCell = cell;
+        // Highlight the touched cell or piece
+        highlightCell(cell);
+    }
 }
 
 function handleTouchEnd(event) {
-    // Handle the end of a touch event
-    // This might involve moving a piece or deselecting it
+    event.preventDefault();
+    const touch = event.changedTouches[0];
+    const cell = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (touchStartCell && cell && cell.classList.contains('cell')) {
+        // Attempt to make a move from touchStartCell to cell
+        makeMove(touchStartCell, cell);
+    }
+    // Remove any highlights
+    clearHighlights();
+    touchStartCell = null;
+}
+
+function highlightCell(cell) {
+    cell.classList.add('highlighted');
+}
+
+function clearHighlights() {
+    document.querySelectorAll('.cell.highlighted').forEach(cell => {
+        cell.classList.remove('highlighted');
+    });
+}
+
+function makeMove(fromCell, toCell) {
+    // Implement your move logic here
+    // This should include checking if the move is valid and updating the game state
+    console.log(`Attempting move from ${fromCell.dataset.row},${fromCell.dataset.col} to ${toCell.dataset.row},${toCell.dataset.col}`);
+    // Add your game logic here
 }
 
 function openSettings() {
@@ -54,6 +91,10 @@ function openSettings() {
 
 function enterCompetition() {
     window.location.href = 'competition.html';
+}
+
+function openLearnPage() {
+    window.location.href = 'learn.html';
 }
 
 // ... rest of your game logic functions
